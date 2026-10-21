@@ -1718,6 +1718,7 @@ button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
     const earned = base * mult;
     save.coins += earned;
     const lvl = save.level;
+    if (win) { try{if(window.parent!==window)window.parent.postMessage({type:'hh-score',game:'army-rush',score:lvl},'*')}catch(e){} /* tell HhGames about the score */ }
     if (win) save.level++;
     persist();
     setTimeout(() => {
